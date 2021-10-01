@@ -4,11 +4,13 @@ open Printf
 open Lwt
 
 
-
+let parse_json_body body key = 
+  let open Yojson.Basic.Util in
+  Yojson.Basic.from_string body |> member key |> to_string;;
 
 let callback conn req body =
   body |> Cohttp_lwt.Body.to_string >|= (fun data ->
-    eprintf "Body: %s\n" data;flush stderr;
+    eprintf "Body: %s\n" (parse_json_body data "message");flush stderr;
     sprintf "%i\n" 3;
   )
   >>= (fun body -> Server.respond_string ~status:`OK ~body ())

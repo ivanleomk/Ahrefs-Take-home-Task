@@ -1,17 +1,21 @@
-# Matrix Determinant OCaml Server
-A simple OCaml HTTP server that calculates the determinants of matrices. Simply make a POST request with some JSON-formatted n by n matrix  and the server will tell you its determinant!
+Here is how to run the files
 
-This code was written to show off on my [YouTube channel](https://youtube.com/alexlugo).
+1. Make the file
 
-## Build
-Just call `make`, which in turn builds server.exe with dune
+```
+make
+```
 
-## Run
-To run just call `./run` after building or if you can type fast then try `./_build/default/server.exe`
+2. Run the file
 
-They're literally the same thing but the first one's for lazy people.
+```
+./_build/default/server.exe
+```
 
-## Test
-Once you've got the server running, you can query it with something like:
+3. If you want to connect to the localhost, utilise the format
 
-``curl 127.0.0.1:2017 --data "[[1,0],[0,1]]"``
+```
+http://127.0.0.1:PORT
+```
+
+where PORT is the port you want to connect to
